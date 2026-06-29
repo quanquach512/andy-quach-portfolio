@@ -15,6 +15,14 @@
       "year": 2025,
       "image": "/certs/aws.png",
       "link": "https://..."
+    },
+    {
+      "title": "Databricks Data Engineer Associate",
+      "subtitle": "Amazon Web Services",
+      "status": "completed",
+      "year": 2025,
+      "image": "/certs/aws.png",
+      "link": "https://..."
     }
   ]
 }
