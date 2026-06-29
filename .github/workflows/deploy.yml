@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - 'lib/**'.   #ignore data change
 
 jobs:
   deploy:

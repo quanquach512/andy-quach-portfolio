@@ -1,0 +1,16 @@
+{
+  "expertise": [
+    {
+      "category": "Data Engineering",
+      "items": ["SQL", "Airflow", "Spark", "Snowflake"]
+    },
+    {
+      "category": "Cloud",
+      "items": ["AWS", "S3", "Lambda", "CloudFront"]
+    },
+    {
+      "category": "Frontend",
+      "items": ["React", "Next.js", "Tailwind"]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "milestones": [
+    {
+      "year": 2024,
+      "category": "Education",
+      "title": "Master of Engineering Graduate",
+      "description": "Graduated with focus on systems and data engineering.",
+      "image": "/milestones/graduate.jpg"
+    },
+    {
+      "year": 2025,
+      "category": "Certification",
+      "title": "AWS Cloud Practitioner",
+      "description": "Certified in AWS cloud fundamentals.",
+      "image": "/milestones/aws.jpg"
+    }
+  ]
+}

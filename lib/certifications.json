@@ -1,0 +1,20 @@
+{
+  "certifications": [
+    {
+      "title": "Microsoft PL-300",
+      "subtitle": "Power BI Data Analyst",
+      "status": "completed",
+      "year": 2025,
+      "image": "/certs/pl300.png",
+      "link": "https://..."
+    },
+    {
+      "title": "AWS Cloud Practitioner",
+      "subtitle": "Amazon Web Services",
+      "status": "completed",
+      "year": 2025,
+      "image": "/certs/aws.png",
+      "link": "https://..."
+    }
+  ]
+}
