@@ -1,6 +1,6 @@
-import Image from "next/image"
 import { Github, Linkedin, Mail, ArrowDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { ProfileAvatar } from "@/components/profile-avatar"
 import type { HeroData } from "@/lib/data"
 
 interface HeroProps {
@@ -80,18 +80,7 @@ export function Hero({ data }: HeroProps) {
           
           {/* Right image */}
           <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
-            <div className="relative">
-              <div className="absolute -inset-4 bg-primary/20 rounded-full blur-3xl" />
-              <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-2 border-border">
-                <Image
-                  src={data.avatarSrc}
-                  alt={data.avatarAlt}
-                  fill
-                  className="object-cover"
-                  priority
-                />
-              </div>
-            </div>
+            <ProfileAvatar src={data.avatarSrc} alt={data.avatarAlt} />
           </div>
         </div>
       </div>
