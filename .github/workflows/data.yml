@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'lib/**'   # 👈 CHỈ khi data thay đổi
+      - 'lib/**'   # only data changes 
 
 jobs:
   sync-data:

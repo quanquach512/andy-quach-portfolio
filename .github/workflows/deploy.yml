@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths-ignore:
-      - 'lib/**'.   #ignore data change
+      - 'lib/**'   #ignore data change
 
 jobs:
   deploy:
