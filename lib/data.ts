@@ -28,14 +28,14 @@ export interface HeroData {
 }
 
 export const heroData: HeroData = {
-  badge: "Software Engineer",
+  badge: "Software Engineer • Data Engineer • Data Analyst",
   headline: {
     line1: "Building digital",
     highlight: "experiences",
     line2: "that make a difference.",
   },
   description:
-    "I'm Andy Quach, a full-stack engineer passionate about crafting high-performance applications with clean code and thoughtful design. Currently focused on building scalable systems at the intersection of technology and user experience.",
+    "I'm Andy Quach, a Software Engineer, Data Engineer, and Data Analyst passionate about building high-performance systems with clean architecture and thoughtful design. Currently focused on developing scalable, data-driven applications at the intersection of software engineering, data pipelines, and user experience.",
   avatarSrc: "/avatar.jpg",
   avatarAlt: "Andy Quach - Software Engineer",
   primaryCta: {
@@ -47,9 +47,9 @@ export const heroData: HeroData = {
     href: "/resume.pdf",
   },
   socials: {
-    github: "https://github.com",
-    linkedin: "https://linkedin.com",
-    email: "alex@example.com",
+    github: "https://github.com/quanquach512",
+    linkedin: "https://www.linkedin.com/in/quanquach0512/",
+    email: "qmquan90@gmail.com",
   },
 }
 
