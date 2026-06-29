@@ -1,0 +1,18 @@
+{
+  "projects": [
+    {
+      "title": "Real-time ETL Pipeline",
+      "description": "Incremental data pipeline using Postgres and Airflow.",
+      "category": "Data Engineering",
+      "status": "completed",
+      "techStack": ["Python", "Postgres", "Airflow"]
+    },
+    {
+      "title": "Portfolio Website",
+      "description": "Next.js portfolio with AWS CI/CD deployment.",
+      "category": "Frontend",
+      "status": "in-progress",
+      "techStack": ["Next.js", "AWS", "CloudFront"]
+    }
+  ]
+}

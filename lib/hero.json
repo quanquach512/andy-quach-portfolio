@@ -1,0 +1,14 @@
+{
+  "titles": [
+    "Software Engineer",
+    "Data Engineer",
+    "Data Analyst"
+  ],
+  "headline": "Building digital experiences that make a difference.",
+  "intro": "I'm Andy Quach, a Software Engineer passionate about scalable systems and clean architecture.",
+  "avatar": {
+    "type": "flip-avatar",
+    "image": "/avatar.jpg",
+    "animation": "flip-rotate-wave"
+  }
+}
