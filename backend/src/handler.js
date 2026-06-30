@@ -1,4 +1,4 @@
-import { S3Client, GetObjectCommand } from "@aws-sdk/client-s3";
+const { S3Client, GetObjectCommand } = require("@aws-sdk/client-s3");
 
 const s3 = new S3Client({});
 const BUCKET = process.env.BUCKET_NAME;
@@ -13,9 +13,7 @@ const streamToString = (stream) =>
     );
   });
 
-
-//test commit
-export const handler = async (event) => {
+exports.handler = async (event) => {
   console.log(JSON.stringify(event));
 
   const path = (event.rawPath || "").replace(/^\/prod/, "");
