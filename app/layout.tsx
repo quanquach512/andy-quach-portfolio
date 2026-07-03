@@ -1,6 +1,10 @@
 import type { Metadata } from 'next'
 import { DM_Sans, Fira_Code } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { AdminProvider } from '@/components/admin/admin-provider'
+import { LoginModal } from '@/components/admin/login-modal'
+import { AdminDashboard } from '@/components/admin/admin-dashboard'
+
 import './globals.css'
 
 const dmSans = DM_Sans({ 
@@ -44,7 +48,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${dmSans.variable} ${firaCode.variable} bg-background`}>
       <body className="font-sans antialiased">
-        {children}
+        <AdminProvider>
+          {children}
+          <LoginModal />
+          <AdminDashboard />
+        </AdminProvider>
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { AdminControls } from "@/components/admin/admin-controls"
 import type { NavbarData } from "@/lib/data"
 
 interface NavigationProps {
@@ -69,6 +70,7 @@ export function Navigation({ data }: NavigationProps) {
           <Button size="sm" asChild>
             <a href={data.ctaHref}>{data.ctaLabel}</a>
           </Button>
+          <AdminControls />
         </div>
         
         {/* Mobile menu button */}
@@ -107,6 +109,7 @@ export function Navigation({ data }: NavigationProps) {
             <Button className="w-full" onClick={() => setIsOpen(false)} asChild>
               <a href={data.ctaHref}>{data.ctaLabel}</a>
             </Button>
+            <AdminControls fullWidth onAction={() => setIsOpen(false)} />
           </div>
         </div>
       )}
