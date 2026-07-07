@@ -1,11 +1,24 @@
 {
-  "titles": "Software Engineer • Data Engineer • Data Analyst",
-  "headline": "Building digital experiences that make a difference.",
-  "intro": "I'm Andy Quach, a Software Engineer, Data Engineer, and Data Analyst passionate about building high-performance systems with clean architecture and thoughtful design.",
-  "avatar": {
-    "type": "flip-avatar",
-    "image": "/images/avatar.jpg",
-    "animation": "flip-rotate-wave"
+  "badge": "Software Engineer • Data Engineer • Data Analyst",
+  "headline": {
+    "line1": "Building digital experiences",
+    "highlight": "that make a difference",
+    "line2": "."
   },
-  "resume": "/files/Andy_Quach_Data_Engineer.pdf"
+  "description": "I'm Andy Quach, a Software Engineer, Data Engineer, and Data Analyst passionate about building high-performance systems with clean architecture and thoughtful design.",
+  "primaryCta": {
+    "label": "View Projects",
+    "href": "#projects"
+  },
+  "secondaryCta": {
+    "label": "Download Resume",
+    "href": "/files/Andy_Quach_Data_Engineer.pdf"
+  },
+  "socials": {
+    "github": "https://github.com/quanquach512",
+    "linkedin": "https://www.linkedin.com/in/quanquach0512/",
+    "email": "qmquan90@gmail.com"
+  },
+  "avatarSrc": "/images/avatar.jpg",
+  "avatarAlt": "Andy Quach"
 }
