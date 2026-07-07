@@ -31,14 +31,14 @@ jobs:
       # 4. Install dependencies
       - name: Install dependencies
         run: pnpm install
-        env:
-          NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
-          NEXT_PUBLIC_ASSET_CLOUDFRONT_URL: ${{ secrets.NEXT_PUBLIC_ASSET_CLOUDFRONT_URL }}
 
       # 5. Build project
       - name: Build Next.js app
         run: pnpm build
-
+        env:
+          NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
+          NEXT_PUBLIC_ASSET_CLOUDFRONT_URL: ${{ secrets.NEXT_PUBLIC_ASSET_CLOUDFRONT_URL }}
+          
       # 6. Configure AWS credentials
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
