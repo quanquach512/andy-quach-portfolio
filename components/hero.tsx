@@ -2,6 +2,7 @@ import { Github, Linkedin, Mail, ArrowDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { ProfileAvatar } from "@/components/profile-avatar"
 import type { HeroData } from "@/lib/data"
+import { asset } from "@/lib/assets"
 
 interface HeroProps {
   data: HeroData
@@ -37,7 +38,7 @@ export function Hero({ data }: HeroProps) {
                 </a>
               </Button>
               <Button variant="outline" size="lg" asChild>
-                <a href={data.secondaryCta.href}>
+                <a href={asset(data.secondaryCta.href)}>
                   {data.secondaryCta.label}
                 </a>
               </Button>
@@ -80,7 +81,7 @@ export function Hero({ data }: HeroProps) {
           
           {/* Right image */}
           <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
-            <ProfileAvatar src={data.avatarSrc} alt={data.avatarAlt} />
+            <ProfileAvatar src={asset(data.avatarSrc)} alt={data.avatarAlt} />
           </div>
         </div>
       </div>
