@@ -12,7 +12,7 @@ interface HeroProps {
 
 export function Hero({ data }: HeroProps) {
   return (
-    <section className="min-h-screen flex items-center justify-center px-6 py-20">
+    <section className="flex items-center justify-center px-6 pt-24 pb-16">
       <div className="max-w-6xl w-full mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left content */}
