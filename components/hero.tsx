@@ -38,7 +38,7 @@ export function Hero({ data }: HeroProps) {
                 </a>
               </Button>
               <Button variant="outline" size="lg" asChild>
-                <a href={asset(data.secondaryCta.href)}>
+                <a href={asset(data.secondaryCta.href)} download="Andy_Quach_Data_Engineer.pdf">
                   {data.secondaryCta.label}
                 </a>
               </Button>

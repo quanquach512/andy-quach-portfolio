@@ -17,39 +17,68 @@ exports.handler = async (event) => {
   console.log(JSON.stringify(event));
 
   const path = (event.rawPath || "").replace(/^\/prod/, "");
+  const isDownloadRoute = path === "/download/resume"
+  if (isDownloadRoute) {
+    const res = await s3.send(
+    new GetObjectCommand({
+        Bucket: BUCKET,
+        Key: "files/Andy_Quach_Data_Engineer.pdf",
+      })
+    );
 
-  const map = {
-    "/hero": "hero.json",
-    "/projects": "projects.json",
-    "/expertise": "expertise.json",
-    "/milestones": "milestones.json",
-    "/certifications": "certifications.json",
-  };
+    const chunks = [];
+    for await (const chunk of res.Body) {
+      chunks.push(chunk);
+    }
 
-  const key = map[path];
-
-  if (!key) {
+    const buffer = Buffer.concat(chunks);
     return {
-      statusCode: 404,
-      body: "Not found"
+      statusCode: 200,
+      isBase64Encoded: true,
+      headers: {
+          "Content-Type": "application/pdf",
+          "Content-Disposition":
+            'attachment; filename="Andy_Quach_Data_Engineer.pdf"',
+          "Access-Control-Allow-Origin": "*",
+        },
+        body: buffer.toString("base64"),
+    };              
+  }
+  else {
+      const map = {
+      "/hero": "hero.json",
+      "/projects": "projects.json",
+      "/expertise": "expertise.json",
+      "/milestones": "milestones.json",
+      "/certifications": "certifications.json",
+    };
+
+    const key = map[path];
+
+    if (!key) {
+      return {
+        statusCode: 404,
+        body: "Not found"
+      };
+    }
+
+    const res = await s3.send(
+      new GetObjectCommand({
+        Bucket: BUCKET,
+        Key: key,
+      })
+    );
+
+    const body = await streamToString(res.Body);
+
+    return {
+      statusCode: 200,
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*"
+      },
+      body
     };
   }
-
-  const res = await s3.send(
-    new GetObjectCommand({
-      Bucket: BUCKET,
-      Key: key,
-    })
-  );
-
-  const body = await streamToString(res.Body);
-
-  return {
-    statusCode: 200,
-    headers: {
-      "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "*"
-    },
-    body
-  };
+  
 };
