@@ -32,16 +32,16 @@ exports.handler = async (event) => {
     }
 
     const buffer = Buffer.concat(chunks);
+    const base64String = buffer.toString("base64");
     return {
       statusCode: 200,
       isBase64Encoded: true,
       headers: {
-          "Content-Type": "application/pdf",
-          "Content-Disposition":
-            'attachment; filename="Andy_Quach_Data_Engineer.pdf"',
-          "Access-Control-Allow-Origin": "*",
-        },
-        body: buffer.toString("base64"),
+        "Content-Type": "application/pdf",
+        "Content-Disposition": "attachment; filename=resume.pdf",
+        "Access-Control-Allow-Origin": "*",
+      },
+      body: base64String,
     };              
   }
   else {
