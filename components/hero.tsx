@@ -1,8 +1,10 @@
+"use client";
 import { Github, Linkedin, Mail, ArrowDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { ProfileAvatar } from "@/components/profile-avatar"
 import type { HeroData } from "@/lib/data"
 import { asset } from "@/lib/assets"
+import { DownloadAPI } from "@/lib/api/download"
 
 interface HeroProps {
   data: HeroData
@@ -37,10 +39,8 @@ export function Hero({ data }: HeroProps) {
                   <ArrowDown className="ml-2 h-4 w-4 transition-transform group-hover:translate-y-0.5" />
                 </a>
               </Button>
-              <Button variant="outline" size="lg" asChild>
-                <a href={asset(data.secondaryCta.href)} download="Andy_Quach_Data_Engineer.pdf">
-                  {data.secondaryCta.label}
-                </a>
+              <Button variant="outline" size="lg" onClick={DownloadAPI.resume}>
+                {data.secondaryCta.label}
               </Button>
             </div>
             
