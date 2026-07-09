@@ -1,18 +1,108 @@
 {
   "projects": [
     {
-      "title": "Real-time ETL Pipeline",
-      "description": "Incremental data pipeline using Postgres and Airflow.",
+      "id": 1,
+      "title": "AWS E-commerce ETL Pipeline",
+      "description": "End-to-end AWS data pipeline processing e-commerce data from CSV and APIs into a scalable data lake architecture.",
       "category": "Data Engineering",
       "status": "completed",
-      "techStack": ["Python", "Postgres", "Airflow"]
+      "techStack": ["Python", "AWS S3", "Glue", "Lambda", "Athena", "SQL"],
+
+      "isPinned": true,
+      "order": 3,
+
+      "github": "",
+      "live": "",
+
+      "details": {
+        "problem": "Data from multiple sources (CSV transactions + product API) needed to be unified into a centralized analytics system.",
+        "solution": "Built a serverless AWS pipeline using S3, Lambda ingestion, Glue ETL, and Athena querying.",
+        "architecture": [
+          "CSV + API ingestion layer",
+          "AWS Lambda for API ingestion",
+          "S3 data lake (raw + processed layers)",
+          "AWS Glue ETL transformation",
+          "Athena SQL analytics layer"
+        ],
+        "results": [
+          "Built full serverless AWS data pipeline",
+          "Implemented star schema modeling",
+          "Enabled scalable SQL analytics via Athena"
+        ],
+        "screenshots": [
+          "/projects/aws-etl-1.png"
+        ]
+      }
     },
+
     {
-      "title": "Portfolio Website",
-      "description": "Next.js portfolio with AWS CI/CD deployment.",
-      "category": "Frontend",
-      "status": "in-progress",
-      "techStack": ["Next.js", "AWS", "CloudFront"]
+      "id": 2,
+      "title": "ETL Log Processing Pipeline",
+      "description": "High-performance ETL pipeline processing 1.8M+ server logs with PostgreSQL, Airflow, and batch optimization.",
+      "category": "Data Engineering",
+      "status": "completed",
+      "techStack": ["Python", "PostgreSQL", "Airflow", "Bash"],
+
+      "isPinned": true,
+      "order": 2,
+
+      "github": "",
+      "live": "",
+
+      "details": {
+        "problem": "Large-scale unstructured logs (~1.8M records) required structured transformation and reliable ingestion.",
+        "solution": "Built modular ETL pipeline with Bash extraction, Python transformation, and PostgreSQL staging + upsert design.",
+        "architecture": [
+          "Raw log ingestion (.gz files)",
+          "Bash + AWK parsing layer",
+          "Python transformation engine",
+          "PostgreSQL staging tables",
+          "Airflow + Cron orchestration"
+        ],
+        "results": [
+          "Processed 1.8M+ log records efficiently",
+          "Sub-minute bulk loading via PostgreSQL COPY",
+          "Idempotent pipeline design (no duplicates)"
+        ],
+        "screenshots": [
+          "/projects/log-etl-1.png"
+        ]
+      }
+    },
+
+    {
+      "id": 3,
+      "title": "Multi-Source Crypto Analytics Pipeline",
+      "description": "Real-time crypto pipeline comparing CoinGecko and Kraken using Snowflake and Prefect orchestration.",
+      "category": "Data Engineering",
+      "status": "completed",
+      "techStack": ["Python", "Snowflake", "Prefect", "REST API"],
+
+      "isPinned": false,
+      "order": 1,
+
+      "github": "",
+      "live": "",
+
+      "details": {
+        "problem": "Crypto data varies significantly across exchanges, making price comparison unreliable.",
+        "solution": "Built multi-source ingestion pipeline normalizing CoinGecko and Kraken into unified Snowflake schema.",
+        "architecture": [
+          "CoinGecko API ingestion",
+          "Kraken API ingestion",
+          "Python normalization layer",
+          "Prefect orchestration",
+          "Snowflake warehouse"
+        ],
+        "results": [
+          "Enabled cross-exchange price comparison",
+          "Normalized multi-source financial data",
+          "Real-time 5-minute refresh pipeline"
+        ],
+        "screenshots": [
+          "/projects/crypto-pipeline-1.png"
+        ]
+      }
     }
   ]
 }
