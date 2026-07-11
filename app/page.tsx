@@ -15,8 +15,8 @@ import {
   contactData,
   HeroData,
 } from "@/lib/data"
-import { HeroAPI  } from "@/lib/api/hero"
-import { ProjectAPI } from "@/lib/api/projects"
+import { HeroAPI  } from "@/api/hero"
+import { ProjectAPI } from "@/api/projects"
 
 export default async function Home() {
   const hero = await HeroAPI.get() as HeroData;
