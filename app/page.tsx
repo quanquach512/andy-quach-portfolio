@@ -16,11 +16,11 @@ import {
   HeroData,
 } from "@/lib/data"
 import { HeroAPI  } from "@/api/hero"
-import { ProjectAPI } from "@/api/projects"
+import { getProjects } from "@/api/projects"
 
 export default async function Home() {
   const hero = await HeroAPI.get() as HeroData;
-  const projects = await ProjectAPI.getAll() 
+  const projects = await getProjects()
   return (
     <main>
       <Navigation data={navbarData} />
