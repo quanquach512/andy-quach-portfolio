@@ -1,4 +1,4 @@
-import { GraduationCap, Award, Briefcase, Rocket, type LucideIcon } from "lucide-react"
+import { GraduationCap, Award, Briefcase, Rocket, type LucideIcon, IdCard } from "lucide-react"
 
 // Hero Section Data
 export interface HeroData {
@@ -88,11 +88,11 @@ export type ProjectCategory = "Data Engineering" | "Analytics" | "Software Engin
 export type ProjectStatus = "Completed" | "In Progress" | "Planned"
 
 export interface Project {
-  slug: string
+  id: number
   title: string
   description: string
-  tags: string[]
-  category: ProjectCategory
+  techStack: string[]
+  category: string
   status: ProjectStatus
   github?: string
   live?: string
@@ -102,15 +102,18 @@ export interface Project {
   architecture: string[]
   results: string[]
   screenshots: string[]
+  isPinned: boolean
+  order: number
 }
+
 
 export const projectsData: Project[] = [
   {
-    slug: "cloudsync-platform",
+    id: 1,
     title: "CloudSync Platform",
     description:
       "A real-time collaboration platform enabling teams to sync and share documents seamlessly across devices with end-to-end encryption.",
-    tags: ["Next.js", "TypeScript", "PostgreSQL", "WebSockets"],
+    techStack: ["Next.js", "TypeScript", "PostgreSQL", "WebSockets"],
     category: "Software Engineering",
     status: "Completed",
     github: "https://github.com",
@@ -133,11 +136,11 @@ export const projectsData: Project[] = [
     screenshots: ["/projects/cloudsync-1.jpg"]
   },
   {
-    slug: "devmetrics-dashboard",
+    id: 2,
     title: "DevMetrics Dashboard",
     description:
       "Analytics dashboard for development teams to track code quality, deployment frequency, and team performance metrics.",
-    tags: ["React", "Node.js", "GraphQL", "Redis"],
+    techStack: ["React", "Node.js", "GraphQL", "Redis"],
     category: "Analytics",
     status: "Completed",
     github: "https://github.com",
@@ -160,11 +163,11 @@ export const projectsData: Project[] = [
     screenshots: ["/projects/devmetrics-1.jpg"]
   },
   {
-    slug: "ai-content-studio",
+    id: 3,
     title: "AI Content Studio",
     description:
       "AI-powered content generation tool that helps creators produce high-quality articles, social posts, and marketing copy.",
-    tags: ["Python", "FastAPI", "OpenAI", "React"],
+    techStack: ["Python", "FastAPI", "OpenAI", "React"],
     category: "AI/ML",
     status: "Completed",
     github: "https://github.com",
@@ -187,11 +190,11 @@ export const projectsData: Project[] = [
     screenshots: ["/projects/ai-content-1.jpg"]
   },
   {
-    slug: "securevault-api",
+    id: 4,
     title: "SecureVault API",
     description:
       "Enterprise-grade secrets management API with role-based access control, audit logging, and automatic rotation.",
-    tags: ["Go", "gRPC", "Kubernetes", "Vault"],
+    techStack: ["Go", "gRPC", "Kubernetes", "Vault"],
     category: "DevOps",
     status: "Completed",
     github: "https://github.com",
@@ -213,11 +216,11 @@ export const projectsData: Project[] = [
     screenshots: ["/projects/cloudsync-1.jpg"]
   },
   {
-    slug: "streamflow",
+    id: 5,
     title: "StreamFlow",
     description:
       "Event-driven microservices framework for building scalable, fault-tolerant distributed systems.",
-    tags: ["Rust", "Kafka", "Docker", "AWS"],
+    techStack: ["Rust", "Kafka", "Docker", "AWS"],
     category: "Data Engineering",
     status: "In Progress",
     github: "https://github.com",
@@ -239,11 +242,11 @@ export const projectsData: Project[] = [
     screenshots: ["/projects/devmetrics-1.jpg"]
   },
   {
-    slug: "designkit-ui",
+    id: 6,
     title: "DesignKit UI",
     description:
       "Open-source component library with 50+ accessible, customizable React components for modern web applications.",
-    tags: ["React", "Tailwind CSS", "Storybook", "Testing Library"],
+    techStack: ["React", "Tailwind CSS", "Storybook", "Testing Library"],
     category: "Software Engineering",
     status: "Completed",
     github: "https://github.com",
@@ -266,11 +269,11 @@ export const projectsData: Project[] = [
     screenshots: ["/projects/ai-content-1.jpg"]
   },
   {
-    slug: "datalake-pipeline",
+    id: 7,
     title: "DataLake Pipeline",
     description:
       "Scalable ETL pipeline for processing and transforming petabytes of raw data into actionable insights.",
-    tags: ["Apache Spark", "Python", "AWS S3", "Airflow"],
+    techStack: ["Apache Spark", "Python", "AWS S3", "Airflow"],
     category: "Data Engineering",
     status: "Completed",
     github: "https://github.com",
@@ -292,11 +295,11 @@ export const projectsData: Project[] = [
     screenshots: ["/projects/devmetrics-1.jpg"]
   },
   {
-    slug: "fraud-detection",
+    id: 8,
     title: "Real-time Fraud Detection",
     description:
       "Machine learning system that detects fraudulent transactions in real-time with 99.5% accuracy.",
-    tags: ["Python", "TensorFlow", "Kafka", "Redis"],
+    techStack: ["Python", "TensorFlow", "Kafka", "Redis"],
     category: "AI/ML",
     status: "Completed",
     github: "https://github.com",
@@ -319,11 +322,11 @@ export const projectsData: Project[] = [
     screenshots: ["/projects/ai-content-1.jpg"]
   },
   {
-    slug: "sales-analytics",
+    id: 9,
     title: "Sales Analytics Platform",
     description:
       "Business intelligence platform providing real-time sales insights, forecasting, and performance tracking.",
-    tags: ["Power BI", "Python", "SQL Server", "Azure"],
+    techStack: ["Power BI", "Python", "SQL Server", "Azure"],
     category: "Analytics",
     status: "In Progress",
     github: "https://github.com",
@@ -345,11 +348,11 @@ export const projectsData: Project[] = [
     screenshots: ["/projects/cloudsync-1.jpg"]
   },
   {
-    slug: "iac-toolkit",
+    id: 10,
     title: "Infrastructure as Code Toolkit",
     description:
       "Comprehensive Terraform modules and scripts for deploying multi-cloud infrastructure with best practices.",
-    tags: ["Terraform", "AWS", "GCP", "GitHub Actions"],
+    techStack: ["Terraform", "AWS", "GCP", "GitHub Actions"],
     category: "DevOps",
     status: "Completed",
     github: "https://github.com",
@@ -373,13 +376,13 @@ export const projectsData: Project[] = [
 ]
 
 // Helper function to get project by slug
-export function getProjectBySlug(slug: string): Project | undefined {
-  return projectsData.find(project => project.slug === slug)
+export function getProjectById(id: number): Project | undefined {
+  return projectsData.find(project => project.id === id)
 }
 
 // Get all project slugs for static generation
-export function getAllProjectSlugs(): string[] {
-  return projectsData.map(project => project.slug)
+export function getAllProjectIds(): number[] {
+  return projectsData.map(project => project.id)
 }
 
 // Get unique project categories

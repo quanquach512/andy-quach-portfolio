@@ -5,13 +5,13 @@
       "title": "AWS E-commerce ETL Pipeline",
       "description": "End-to-end AWS data pipeline processing e-commerce data from CSV and APIs into a scalable data lake architecture.",
       "category": "Data Engineering",
-      "status": "completed",
+      "status": "Completed",
       "techStack": ["Python", "AWS S3", "Glue", "Lambda", "Athena", "SQL"],
 
       "isPinned": true,
       "order": 3,
 
-      "github": "",
+      "github": "https://github.com/quanquach512/aws-etl-project",
       "live": "",
 
       "details": {
@@ -40,13 +40,13 @@
       "title": "ETL Log Processing Pipeline",
       "description": "High-performance ETL pipeline processing 1.8M+ server logs with PostgreSQL, Airflow, and batch optimization.",
       "category": "Data Engineering",
-      "status": "completed",
-      "techStack": ["Python", "PostgreSQL", "Airflow", "Bash"],
+      "status": "Completed",
+      "techStack": ["Python", "PostgreSQL", "Airflow", "Bash", "Cron"],
 
       "isPinned": true,
       "order": 2,
 
-      "github": "",
+      "github": "https://github.com/quanquach512/etl-log-pipeline",
       "live": "",
 
       "details": {
@@ -75,13 +75,13 @@
       "title": "Multi-Source Crypto Analytics Pipeline",
       "description": "Real-time crypto pipeline comparing CoinGecko and Kraken using Snowflake and Prefect orchestration.",
       "category": "Data Engineering",
-      "status": "completed",
+      "status": "Completed",
       "techStack": ["Python", "Snowflake", "Prefect", "REST API"],
 
       "isPinned": false,
       "order": 1,
 
-      "github": "",
+      "github": "https://github.com/quanquach512/crypto-price-pipeline",
       "live": "",
 
       "details": {

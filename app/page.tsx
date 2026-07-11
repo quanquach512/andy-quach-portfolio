@@ -7,7 +7,6 @@ import { Certifications } from "@/components/certifications"
 import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
 import {
-  heroData,
   navbarData,
   projectsData,
   techStackData,
@@ -16,18 +15,20 @@ import {
   contactData,
   HeroData,
 } from "@/lib/data"
-import { HeroAPI } from "@/lib/api/hero"
+import { HeroAPI  } from "@/lib/api/hero"
+import { ProjectAPI } from "@/lib/api/projects"
 
 export default async function Home() {
   const hero = await HeroAPI.get() as HeroData;
+  const projects = await ProjectAPI.getAll() 
   return (
     <main>
       <Navigation data={navbarData} />
       <Hero data={hero} />
       <Projects 
-        data={projectsData} 
+        data={projects} 
         limit={3}
-        showViewAll={true}
+        showViewAll={false}
       />
       <TechStack data={techStackData} />
       <Achievements 

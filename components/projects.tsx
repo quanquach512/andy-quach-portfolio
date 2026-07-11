@@ -126,7 +126,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="flex flex-wrap gap-2">
-            {project.tags.slice(0, 4).map((tag) => (
+            {project.techStack.slice(0, 4).map((tag) => (
               <Badge 
                 key={tag} 
                 variant="secondary"
@@ -145,7 +145,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
               asChild 
               className="flex-1 border-border text-muted-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary active:bg-primary active:text-primary-foreground active:border-primary"
             >
-              <Link href={`/projects/${project.slug}`}>
+              <Link href={`/projects/${project.id}`}>
                 <Eye className="mr-2 h-4 w-4" />
                 View Details
               </Link>
