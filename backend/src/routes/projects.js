@@ -33,7 +33,7 @@ const getProjects = async () => {
     };
 }
 
-const getProjectById = async (event, id) => {
+const getProjectById = async (id) => {
   const res = await s3.send(
     new GetObjectCommand({
       Bucket: BUCKET,
