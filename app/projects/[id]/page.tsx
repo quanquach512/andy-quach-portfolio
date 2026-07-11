@@ -21,20 +21,13 @@ export async function generateStaticParams() {
 
 }
 
-export async function generateMetadata({ params }: ProjectPageProps) {
-  const { id } =  params
-  const project = await ProjectAPI.getById(Number(id))
-  
-  if (!project) {
-    return {
-      title: "Project Not Found",
-    }
-  }
+export async function generateMetadata() {
 
   return {
-    title: `${project.title} | Portfolio`,
-    description: project.description,
+    title: "Project",
+
   }
+
 }
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
