@@ -20,7 +20,8 @@ const getProjects = async () => {
             status: p.status,
             techStack: p.techStack,
             isPinned: p.isPinned,
-            order: p.order,         
+            order: p.order,
+            github: p.github,         
         }))
         .sort((a, b) => b.order - a.order);
     return {
