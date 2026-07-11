@@ -1,21 +1,28 @@
 const hero = require("./routes/hero");
 const download = require("./routes/download");
-// const projects = require("./routes/projects");
+const projects = require("./routes/projects");
 
 exports.handler = async (event) => {
   const path = (event.rawPath || "").replace(/^\/prod/, "");
-
-  if (path.startsWith("/download")) {
+  // DOWNLOAD
+  if (path === "/download/resume") {
     return download.handler(event);
   }
-
-  if (path.startsWith("/hero")) {
+  // HERO
+  if (path === "/hero") {
     return hero.handler(event);
   }
+  
+  //PROJECTS LIST
+  if (path === "/projects") {
+    return projects.getProjects();
+  }
 
-  // if (path.startsWith("/projects")) {
-  //   return projects.handler(event);
-  // }
+  //PROJECT DETAIL 
+  if (path.startsWith("/projects/")) {
+    const id = path.split("/")[2];
+    return projects.getProjectById(id);
+  }
 
   return {
     statusCode: 404,
