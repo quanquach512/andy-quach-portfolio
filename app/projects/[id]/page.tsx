@@ -26,17 +26,18 @@ interface ProjectPageProps {
 export default async function ProjectPage({ params }: ProjectPageProps) {
   const { id } = await params
   const numericId = Number(id)
- 
+  if (!id || isNaN(numericId)) {
+    notFound()
+  }
   
   const project = await getProjectById(numericId) 
-  console.log("PARSED ID:", project)
   if (!project) {
     notFound()
   }
-  const screenshots = project?.details.screenshots ?? []
+  const screenshots = project?.details?.screenshots ?? []
   const techStack = project?.techStack ?? []
-  const architecture = project?.details.architecture ?? []
-  const results = project?.details.results ?? []
+  const architecture = project?.details?.architecture ?? []
+  const results = project?.details?.results ?? []
 
   return (
     <main className="min-h-screen bg-background text-foreground">
@@ -54,29 +55,29 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <header className="mb-12">
           <div className="flex items-center gap-3 mb-4">
             <Badge variant="outline">
-              {project.category}
+              {project?.category}
             </Badge>
 
             <Badge
               variant="secondary"
               className={
-                project.status === "Completed"
+                project?.status === "Completed"
                   ? "bg-green-500/10 text-green-400"
-                  : project.status === "In Progress"
+                  : project?.status === "In Progress"
                   ? "bg-yellow-500/10 text-yellow-400"
                   : "bg-muted text-muted-foreground"
               }
             >
-              {project.status}
+              {project?.status}
             </Badge>
           </div>
 
           <h1 className="text-4xl font-bold mb-4">
-            {project.title}
+            {project?.title}
           </h1>
 
           <p className="text-muted-foreground text-lg">
-            {project.description}
+            {project?.description}
           </p>
         </header>
 
@@ -116,7 +117,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <CardTitle>Problem</CardTitle>
           </CardHeader>
           <CardContent>
-            {project.details.problem}
+            {project?.details?.problem}
           </CardContent>
         </Card>
 
@@ -126,7 +127,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <CardTitle>Solution</CardTitle>
           </CardHeader>
           <CardContent>
-            {project.details.solution}
+            {project?.details?.solution}
           </CardContent>
         </Card>
 

@@ -97,11 +97,13 @@ export interface Project {
   github?: string
   live?: string
   // Detailed fields for project page
-  problem: string
-  solution: string
-  architecture: string[]
-  results: string[]
-  screenshots: string[]
+  details: {
+    problem: string
+    solution: string
+    architecture: string[]
+    results: string[]
+    screenshots: string[]
+  }
   isPinned: boolean
   order: number
 }

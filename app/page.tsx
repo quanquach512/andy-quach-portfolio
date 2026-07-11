@@ -15,19 +15,28 @@ import {
   certificationsData,
   contactData,
   HeroData,
+  Project,
+  heroData
 } from "@/lib/data"
 import { HeroAPI  } from "@/api/hero"
 import { getProjects } from "@/api/projects"
 
 export default async function Home() {
-  const hero = await HeroAPI.get() as HeroData;
-  const projects = await getProjects()
+  let hero = null
+  let projects = []
+
+  try {
+    hero = await HeroAPI.get()
+    projects = await getProjects() 
+  } catch (err) {
+    console.error("SSR error:", err)
+  }
   return (
     <main>
       <Navigation data={navbarData} />
-      <Hero data={hero} />
+      <Hero data={hero ?? heroData} />
       <Projects 
-        data={projects} 
+        data={projects ?? []} 
         limit={3}
         showViewAll={false}
       />
