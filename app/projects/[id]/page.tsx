@@ -1,140 +1,96 @@
 import { notFound } from "next/navigation"
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowLeft, Github, ExternalLink, CheckCircle2, Layers, Lightbulb, Target, BarChart3 } from "lucide-react"
+import {
+  ArrowLeft,
+  Github,
+  ExternalLink,
+  CheckCircle2,
+  Layers,
+  Lightbulb,
+  Target,
+  BarChart3
+} from "lucide-react"
+
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { getProjectById,  } from "@/lib/data"
-import { ProjectAPI } from "@/api/projects"
+import { getProjectById } from "@/api/projects"
+import { asset } from "@/lib/assets"
 
 interface ProjectPageProps {
-  params: { id: string }
+  params: Promise<{ id: string }>
 }
 
-export async function generateStaticParams() {
-
-  const projects = await ProjectAPI.getAll()
-  return projects.map((p) => ({
-    id: String(p.id),
-  }));
-
-}
-
-export async function generateMetadata() {
-
-  return {
-    title: "Project",
-
-  }
-
-}
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
   const { id } = await params
-  console.log("ID = ", id);
-  const project = await ProjectAPI.getById(Number(id))
-
+  const numericId = Number(id)
+ 
+  
+  const project = await getProjectById(numericId) 
+  console.log("PARSED ID:", project)
   if (!project) {
     notFound()
   }
+  const screenshots = project?.details.screenshots ?? []
+  const techStack = project?.techStack ?? []
+  const architecture = project?.details.architecture ?? []
+  const results = project?.details.results ?? []
 
   return (
     <main className="min-h-screen bg-background text-foreground">
       <div className="max-w-4xl mx-auto px-6 py-12">
+
         {/* Back button */}
-        <Button 
-          variant="outline" 
-          asChild 
-          className="mb-8 border-border text-muted-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary"
-        >
-          <Link href="/projects">
+        <Button variant="outline" asChild className="mb-8">
+          <Link href="/#projects">
             <ArrowLeft className="mr-2 h-4 w-4" />
-            Back to Projects
+            Back to Home
           </Link>
         </Button>
 
         {/* Header */}
         <header className="mb-12">
           <div className="flex items-center gap-3 mb-4">
-            <Badge 
-              variant="outline" 
-              className="text-sm font-mono border-primary/30 text-primary"
-            >
+            <Badge variant="outline">
               {project.category}
             </Badge>
-            <Badge 
+
+            <Badge
               variant="secondary"
-              className={`text-sm font-mono ${
-                project.status === "Completed" 
-                  ? "bg-green-500/10 text-green-400" 
+              className={
+                project.status === "Completed"
+                  ? "bg-green-500/10 text-green-400"
                   : project.status === "In Progress"
                   ? "bg-yellow-500/10 text-yellow-400"
                   : "bg-muted text-muted-foreground"
-              }`}
+              }
             >
               {project.status}
             </Badge>
           </div>
-          
-          <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-4 text-balance">
+
+          <h1 className="text-4xl font-bold mb-4">
             {project.title}
           </h1>
-          
-          <p className="text-xl text-muted-foreground leading-relaxed mb-6">
+
+          <p className="text-muted-foreground text-lg">
             {project.description}
           </p>
-
-          {/* Action buttons */}
-          <div className="flex flex-wrap gap-3">
-            {project.github && (
-              <Button 
-                variant="outline" 
-                asChild 
-                className="border-border text-muted-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary"
-              >
-                <a 
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Github className="mr-2 h-4 w-4" />
-                  View Source
-                </a>
-              </Button>
-            )}
-            {project.live && (
-              <Button 
-                asChild 
-                className="bg-primary text-primary-foreground hover:bg-primary/90"
-              >
-                <a 
-                  href={project.live}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <ExternalLink className="mr-2 h-4 w-4" />
-                  Live Demo
-                </a>
-              </Button>
-            )}
-          </div>
         </header>
 
         {/* Screenshots */}
-        {project.screenshots.length > 0 && (
+        {screenshots.length > 0 && (
           <section className="mb-12">
             <div className="grid gap-4">
-              {project.screenshots.map((screenshot, index) => (
-                <div 
-                  key={index} 
-                  className="relative aspect-video rounded-lg overflow-hidden border border-border"
-                >
+              {screenshots.map((img: string, i: number) => (
+                <div key={i} className="relative aspect-video">
                   <Image
-                    src={screenshot}
-                    alt={`${project.title} screenshot ${index + 1}`}
+                    src={asset(img)}
+                    alt={`Screenshot ${i + 1}`}
                     fill
-                    className="object-cover"
+                    className="object-cover rounded-lg"
                   />
                 </div>
               ))}
@@ -144,113 +100,78 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
         {/* Tech Stack */}
         <section className="mb-12">
-          <div className="flex items-center gap-2 mb-4">
-            <Layers className="h-5 w-5 text-primary" />
-            <h2 className="text-2xl font-bold text-foreground">Tech Stack</h2>
-          </div>
+          <h2 className="text-xl font-bold mb-3">Tech Stack</h2>
           <div className="flex flex-wrap gap-2">
-            {project.techStack.map((tag) => (
-              <Badge 
-                key={tag} 
-                variant="secondary"
-                className="bg-secondary text-secondary-foreground text-sm font-mono px-3 py-1"
-              >
-                {tag}
+            {techStack.map((t: string) => (
+              <Badge key={t} variant="secondary">
+                {t}
               </Badge>
             ))}
           </div>
         </section>
 
-        {/* Problem Statement */}
-        <Card className="bg-card border-border mb-6">
+        {/* Problem */}
+        <Card className="mb-6">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-foreground">
-              <Target className="h-5 w-5 text-primary" />
-              Problem Statement
-            </CardTitle>
+            <CardTitle>Problem</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-muted-foreground leading-relaxed">
-              {project.problem}
-            </p>
+            {project.details.problem}
           </CardContent>
         </Card>
 
-        {/* Solution Overview */}
-        <Card className="bg-card border-border mb-6">
+        {/* Solution */}
+        <Card className="mb-6">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-foreground">
-              <Lightbulb className="h-5 w-5 text-primary" />
-              Solution Overview
-            </CardTitle>
+            <CardTitle>Solution</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-muted-foreground leading-relaxed">
-              {project.solution}
-            </p>
+            {project.details.solution}
           </CardContent>
         </Card>
 
         {/* Architecture */}
-        <Card className="bg-card border-border mb-6">
+        <Card className="mb-6">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-foreground">
-              <Layers className="h-5 w-5 text-primary" />
-              Architecture & Data Flow
-            </CardTitle>
+            <CardTitle>Architecture</CardTitle>
           </CardHeader>
           <CardContent>
-            <ul className="space-y-3">
-              {project.architecture.map((item, index) => (
-                <li key={index} className="flex items-start gap-3">
-                  <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                  <span className="text-muted-foreground leading-relaxed">{item}</span>
+            <ul className="space-y-2">
+              {architecture.map((a: string, i: number) => (
+                <li key={i} className="flex gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-primary mt-1" />
+                  {a}
                 </li>
               ))}
             </ul>
           </CardContent>
         </Card>
 
-        {/* Results & Impact */}
-        <Card className="bg-card border-border mb-12">
+        {/* Results */}
+        <Card className="mb-12">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-foreground">
-              <BarChart3 className="h-5 w-5 text-primary" />
-              Results & Impact
-            </CardTitle>
+            <CardTitle>Results</CardTitle>
           </CardHeader>
           <CardContent>
-            <ul className="space-y-3">
-              {project.results.map((result, index) => (
-                <li key={index} className="flex items-start gap-3">
-                  <CheckCircle2 className="h-5 w-5 text-green-400 mt-0.5 flex-shrink-0" />
-                  <span className="text-muted-foreground leading-relaxed">{result}</span>
+            <ul className="space-y-2">
+              {results.map((r: string, i: number) => (
+                <li key={i} className="flex gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-green-400 mt-1" />
+                  {r}
                 </li>
               ))}
             </ul>
           </CardContent>
         </Card>
 
-        {/* Footer navigation */}
-        <div className="flex justify-between items-center pt-8 border-t border-border">
-          <Button 
-            variant="outline" 
-            asChild 
-            className="border-border text-muted-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary"
-          >
-            <Link href="/projects">
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              All Projects
-            </Link>
+        {/* Footer */}
+        <div className="flex justify-between border-t pt-6">
+          <Button variant="outline" asChild>
+            <Link href="/projects">Back to Projects</Link>
           </Button>
-          <Button 
-            variant="outline" 
-            asChild 
-            className="border-border text-muted-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary"
-          >
-            <Link href="/#contact">
-              Get in Touch
-            </Link>
+
+          <Button variant="outline" asChild>
+            <Link href="/#contact">Contact</Link>
           </Button>
         </div>
       </div>
