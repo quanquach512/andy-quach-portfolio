@@ -15,13 +15,13 @@ exports.handler = async (event) => {
   
   //PROJECTS LIST
   if (path === "/projects") {
-    return projects.handler(event);
+    return projects.getProjects();
   }
 
   //PROJECT DETAIL 
   if (path.startsWith("/projects/")) {
     const id = path.split("/")[2];
-    return projects.getProjectById(event, id);
+    return projects.getProjectById(id);
   }
 
   return {
