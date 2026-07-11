@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import { ProfileAvatar } from "@/components/profile-avatar"
 import type { HeroData } from "@/lib/data"
 import { asset } from "@/lib/assets"
-import { DownloadAPI } from "@/lib/api/download"
+import { DownloadAPI } from "@/api/download"
 
 interface HeroProps {
   data: HeroData
