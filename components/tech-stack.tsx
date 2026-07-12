@@ -1,7 +1,7 @@
-import type { TechStackData } from "@/lib/data"
+import type { TechStackItem } from "@/lib/data"
 
 interface TechStackProps {
-  data: TechStackData
+  data: TechStackItem[]
   badge?: string
   title?: string
   description?: string
@@ -25,7 +25,7 @@ export function TechStack({
         </div>
         
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {Object.entries(data).map(([category, items]) => (
+          {data.map(({category, items}) => (
             <div key={category} className="space-y-4">
               <h3 className="text-sm font-mono text-primary tracking-wider uppercase">
                 {category}

@@ -10,7 +10,7 @@ import { Footer } from "@/components/footer"
 import {
   navbarData,
   projectsData,
-  techStackData,
+  TechStackResponse,
   achievementsData,
   certificationsData,
   contactData,
@@ -20,14 +20,16 @@ import {
 } from "@/lib/data"
 import { HeroAPI  } from "@/api/hero"
 import { getProjects } from "@/api/projects"
+import { getExpertise  } from "@/api/expertise"
 
 export default async function Home() {
   let hero = null
   let projects = []
-
+  let techStack = null
   try {
     hero = await HeroAPI.get()
     projects = await getProjects() 
+    techStack = await getExpertise() as TechStackResponse
   } catch (err) {
     console.error("SSR error:", err)
   }
@@ -40,7 +42,7 @@ export default async function Home() {
         limit={3}
         showViewAll={false}
       />
-      <TechStack data={techStackData} />
+      <TechStack data={techStack.expertise} />
       <Achievements 
         data={achievementsData} 
         limit={3}
