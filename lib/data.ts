@@ -397,15 +397,13 @@ export const projectCategories: ProjectCategory[] = [
 ]
 
 // Tech Stack Data
-export type TechStackData = Record<string, string[]>
+export type TechStackItem = {
+  category: string
+  items: string[]
+}
 
-export const techStackData: TechStackData = {
-  Languages: ["TypeScript", "Python", "Go", "Rust", "JavaScript"],
-  Frontend: ["React", "Next.js", "Vue.js", "Tailwind CSS", "Framer Motion"],
-  Backend: ["Node.js", "FastAPI", "Express", "GraphQL", "gRPC"],
-  Database: ["PostgreSQL", "MongoDB", "Redis", "Supabase", "Prisma"],
-  DevOps: ["Docker", "Kubernetes", "AWS", "GitHub Actions", "Terraform"],
-  Tools: ["Git", "Figma", "Vim", "VS Code", "Linear"],
+export type TechStackResponse = {
+  expertise: TechStackResponse[]
 }
 
 // Achievements Data

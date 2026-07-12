@@ -12,7 +12,7 @@ import {
   projectsData,
   certificationsData,
   achievementsData,
-  techStackData,
+  // techStackData,
   type Project,
   type Certification,
   type Achievement,
@@ -73,11 +73,11 @@ function seedData(): AdminData {
     projects: projectsData.map((p) => ({ ...p, __id: uid() })),
     certifications: certificationsData.map((c) => ({ ...c, __id: uid() })),
     achievements: achievementsData.map(({ icon, ...rest }) => ({ ...rest, __id: uid() })),
-    techStack: Object.entries(techStackData).map(([category, items]) => ({
-      __id: uid(),
-      category,
-      items,
-    })),
+    // techStack: Object.entries(techStackData).map(([category, items]) => ({
+    //   __id: uid(),
+    //   category,
+    //   items,
+    // })),
   }
 }
 
