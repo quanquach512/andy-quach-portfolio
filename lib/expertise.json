@@ -2,15 +2,63 @@
   "expertise": [
     {
       "category": "Data Engineering",
-      "items": ["SQL", "Airflow", "Spark", "Snowflake"]
+      "items": [
+        "SQL",
+        "Python",
+        "Spark",
+        "Airflow",
+        "Databricks",
+        "AWS Glue",
+        "AWS Athena"
+      ]
     },
     {
-      "category": "Cloud",
-      "items": ["AWS", "S3", "Lambda", "CloudFront"]
+      "category": "Cloud & DevOps",
+      "items": [
+        "AWS",
+        "Azure",
+        "Docker",
+        "GitHub Actions",
+        "CloudFront"
+      ]
+    },
+    {
+      "category": "Backend",
+      "items": [
+        "Node.js",
+        "FastAPI",
+        "REST API"
+      ]
+    },
+    {
+      "category": "Databases",
+      "items": [
+        "PostgreSQL",
+        "MySQL",
+        "Snowflake"
+      ]
     },
     {
       "category": "Frontend",
-      "items": ["React", "Next.js", "Tailwind"]
+      "items": [
+        "React",
+        "Next.js",
+        "Tailwind"
+      ]
+    },
+    {
+      "category": "Data Analytics",
+      "items": [
+        "Power BI",
+        "AWS QuickSight"
+      ]
+    },
+    {
+      "category": "Mobile",
+      "items": [
+        "Swift",
+        "Objective-C"
+      ]
     }
   ]
 }
