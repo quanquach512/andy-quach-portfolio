@@ -489,70 +489,94 @@ export const achievementCategories: AchievementCategory[] = [
 export type CertificationStatus = "Completed" | "In Progress" | "Planned"
 
 export interface Certification {
+  id: number
   name: string
   issuer: string
   date: string
   status: CertificationStatus
-  credentialUrl: string
+  credentialUrl: string | null
   badgeImage?: string
+  isPinned: boolean
+  order: number | null
 }
 
 export const certificationsData: Certification[] = [
   {
+    id: 1,
     name: "AWS Solutions Architect Professional",
     issuer: "Amazon Web Services",
     date: "2024",
     status: "Completed",
     credentialUrl: "https://aws.amazon.com",
     badgeImage: "/achievements/aws-cert.jpg",
+    isPinned: true,
+    order: 1
   },
   {
+    id: 2,
     name: "Google Cloud Professional Developer",
     issuer: "Google Cloud",
     date: "2024",
     status: "Completed",
     credentialUrl: "https://cloud.google.com",
     badgeImage: "/achievements/aws-cert.jpg",
+    isPinned: true,
+    order: 2
   },
   {
+    id: 3,
     name: "Certified Kubernetes Administrator",
     issuer: "Cloud Native Computing Foundation",
     date: "2023",
     status: "Completed",
     credentialUrl: "https://cncf.io",
     badgeImage: "/achievements/aws-cert.jpg",
+    isPinned: true,
+    order: 3
   },
   {
+    id: 4,
     name: "MongoDB Developer Associate",
     issuer: "MongoDB University",
     date: "2023",
     status: "Completed",
     credentialUrl: "https://mongodb.com",
     badgeImage: "/achievements/aws-cert.jpg",
+    isPinned: false,
+    order: null
   },
   {
+    id: 5,
     name: "Microsoft Azure Data Engineer",
     issuer: "Microsoft",
     date: "2025",
     status: "In Progress",
     credentialUrl: "https://learn.microsoft.com",
     badgeImage: "/achievements/powerbi-cert.jpg",
+    isPinned: false,
+    order: null
   },
   {
+    id: 6,
     name: "Terraform Associate",
     issuer: "HashiCorp",
     date: "2025",
     status: "Planned",
     credentialUrl: "https://hashicorp.com",
     badgeImage: "/achievements/aws-cert.jpg",
+    isPinned: false,
+    order: null
   },
   {
+    id: 7,
     name: "Databricks Data Engineer Professional",
     issuer: "Databricks",
     date: "2025",
     status: "Planned",
     credentialUrl: "https://databricks.com",
     badgeImage: "/achievements/powerbi-cert.jpg",
+    isPinned: false,
+    order: null
   },
 ]
 

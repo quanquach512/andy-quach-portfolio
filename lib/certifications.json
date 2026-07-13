@@ -1,28 +1,81 @@
 {
   "certifications": [
     {
-      "title": "Microsoft PL-300",
-      "subtitle": "Power BI Data Analyst",
-      "status": "completed",
-      "year": 2025,
-      "image": "/certs/pl300.png",
-      "link": "https://..."
+      "id": 1,
+      "name": "AWS Certified Cloud Practitioner – CLF-C02",
+      "issuer": "Amazon Web Services",
+      "date": "2026",
+      "status": "Completed",
+      "credentialUrl": "https://www.credly.com/badges/6f8e648a-8bea-42fe-ad29-2abdc2e2535f",
+      "badgeImage": "/certifications/aws-cert.png",
+      "isPinned": true,
+      "order": 1
     },
     {
-      "title": "AWS Cloud Practitioner",
-      "subtitle": "Amazon Web Services",
-      "status": "completed",
-      "year": 2025,
-      "image": "/certs/aws.png",
-      "link": "https://..."
+      "id": 2,
+      "name": "ECE MENG Specification",
+      "issuer": "University Of Waterloo",
+      "date": "2024",
+      "status": "Completed",
+      "credentialUrl": "https://dth4j7f0euvv2.cloudfront.net/files/ECE-MENG-Software.pdf",
+      "badgeImage": "/certifications/ece-meng-software.png",
+      "isPinned": true,
+      "order": 2
     },
     {
-      "title": "Databricks Data Engineer Associate",
-      "subtitle": "Amazon Web Services",
-      "status": "completed",
-      "year": 2025,
-      "image": "/certs/aws.png",
-      "link": "https://..."
+      "id": 3,
+      "name": "IBM Data Engineering Professional Certificate",
+      "issuer": "IBM",
+      "date": "2026",
+      "status": "Completed",
+      "credentialUrl": "https://coursera.org/verify/specialization/WUCNY4PQ1ERH",
+      "badgeImage": "/certifications/ibm-de.png",
+      "isPinned": true,
+      "order": 3
+    },
+    {
+      "id": 4,
+      "name": "Data Warehouse Fundamentals",
+      "issuer": "IBM",
+      "date": "2026",
+      "status": "Completed",
+      "credentialUrl": "https://coursera.org/verify/IV1TWCJGM6WL",
+      "badgeImage": "/certifications/ibm-wh.png",
+      "isPinned": false,
+      "order": 4
+    },
+    {
+      "id": 5,
+      "name": "ETL and Data Pipelines with Shell, Airflow and Kafka",
+      "issuer": "IBM",
+      "date": "2026",
+      "status": "Completed",
+      "credentialUrl": "https://coursera.org/verify/K662GGM34AHB",
+      "badgeImage": "/certifications/ibm-etl.png",
+      "isPinned": false,
+      "order": 5
+    },
+    {
+      "id": 6,
+      "name": "Hands-on Introduction to Linux Commands and Shell Scripting",
+      "issuer": "IBM",
+      "date": "2026",
+      "status": "Completed",
+      "credentialUrl": "https://coursera.org/verify/EBAPF2G7G2F4",
+      "badgeImage": "/certifications/ibm-linux.png",
+      "isPinned": false,
+      "order": 5
+    },
+    {
+      "id": 7,
+      "name": "Databricks Certified Data Engineer Associate",
+      "issuer": "Databricks",
+      "date": "2026",
+      "status": "In Progress",
+      "credentialUrl": null,
+      "badgeImage": "/certifications/dtb-associate.png",
+      "isPinned": false,
+      "order": 5
     }
   ]
 }
