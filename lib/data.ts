@@ -599,11 +599,11 @@ export const contactData: ContactData = {
   headline: "Let's work together",
   description:
     "Have a project in mind or want to discuss opportunities? I'd love to hear from you. Let's create something amazing together.",
-  email: "alex@example.com",
-  location: "San Francisco, CA",
+  email: "qmquan90@gmail.com",
+  location: "Ontario, Canada",
   socials: {
-    github: "https://github.com",
-    linkedin: "https://linkedin.com",
-    twitter: "https://twitter.com",
+    github: "https://github.com/quanquach512",
+    linkedin: "https://www.linkedin.com/in/quanquach0512/",
+    // twitter: "https://twitter.com",
   },
 }
