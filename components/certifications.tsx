@@ -24,7 +24,20 @@ export function Certifications({
   showViewAll = true,
   limit,
 }: CertificationsProps) {
-  const displayedCerts = limit ? data.slice(0, limit) : data
+  const sortedCerts = [...data].sort((a, b) => {
+    // pinned first
+    if (a.isPinned !== b.isPinned) {
+      return a.isPinned ? -1 : 1
+    }
+
+    // then by order (null goes last)
+    const aOrder = a.order ?? Number.MAX_SAFE_INTEGER
+    const bOrder = b.order ?? Number.MAX_SAFE_INTEGER
+
+    return aOrder - bOrder
+  })
+
+  const displayedCerts = limit ? sortedCerts.slice(0, limit) : sortedCerts
 
   return (
     <section id="certifications" className="py-24 px-6">
@@ -88,15 +101,19 @@ export function CertificationCard({ certification }: CertificationCardProps) {
               <h3 className="font-semibold text-card-foreground group-hover:text-primary transition-colors">
                 {certification.name}
               </h3>
-              <a
-                href={certification.credentialUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors shrink-0"
-                aria-label={`View ${certification.name} credential`}
-              >
-                <ExternalLink className="h-4 w-4" />
-              </a>
+              {
+                certification.credentialUrl && (
+                  <a
+                    href={certification.credentialUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-primary transition-colors shrink-0"
+                    aria-label={`View ${certification.name} credential`}
+                  >
+                    <ExternalLink className="h-4 w-4" />
+                  </a>
+                )
+              }
             </div>
             <p className="text-sm text-muted-foreground">
               {certification.issuer}
