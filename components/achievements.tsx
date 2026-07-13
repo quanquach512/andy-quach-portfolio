@@ -5,7 +5,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import type { Achievement } from "@/lib/data"
-import { getLucideIcon } from "@/lib/iconMap"
+import { getLucideIcon } from "@/lib/utils"
 
 interface AchievementsProps {
   data: Achievement[]

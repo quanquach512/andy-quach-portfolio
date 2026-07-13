@@ -30,7 +30,7 @@ exports.handler = async (event) => {
     return expertise.handler(event);
   }
   //ACHIEVEMENT LIST
-  if (path === "/achievements") {
+  if (path === "/milestones") {
     return achievements.handler(event);
   }
   return {
