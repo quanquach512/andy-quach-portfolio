@@ -14,13 +14,24 @@
   {
     "id": 2,
     "category": "Personal",
-    "title": "Birth of Bull",
-    "description": "Welcomed my son Bull into the world ❤️",
+    "title": "Birth of my son",
+    "description": "Welcomed my son into the world ❤️",
     "date": "2025",
+    "icon": "Heart",
+    "image": "/achievements/baby-bull.jpg",
+    "isPinned": true,
+    "order": 2
+  },
+  {
+    "id": 3,
+    "category": "Personal",
+    "title": "Bull's 1st Birthday",
+    "description": "Celebrated my son's first birthday 🎂",
+    "date": "2026",
     "icon": "Heart",
     "image": "/achievements/bull.jpg",
     "isPinned": true,
-    "order": 2
+    "order": 3
   }
   ]
 }
