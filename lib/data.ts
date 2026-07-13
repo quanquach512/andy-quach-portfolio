@@ -403,89 +403,84 @@ export type TechStackItem = {
 }
 
 export type TechStackResponse = {
-  expertise: TechStackResponse[]
+  expertise: TechStackItem[]
 }
 
 // Achievements Data
-export type AchievementCategory = "Education" | "Certification" | "Project" | "Career"
+export type AchievementCategory = "Education" | "Personal" | "Project" | "Career"
 
 export interface Achievement {
+  id: Number
   category: AchievementCategory
   title: string
   description: string
   date: string
   image: string
-  icon: LucideIcon
+  icon: string
   link: string | null
+  isPinned: Boolean
+  order: Number | null
 }
 
 export const achievementsData: Achievement[] = [
   {
+    id: 1, 
     category: "Education",
     title: "Master of Engineering, University of Waterloo",
     description:
       "Completed my MEng in Electrical and Computer Engineering with a Software specialization.",
     date: "2024",
     image: "/achievements/convocation.jpg",
-    icon: GraduationCap,
+    icon: "GraduationCap",
     link: null,
+    isPinned: true,
+    order: 1
   },
   {
-    category: "Certification",
-    title: "AWS Certified Cloud Practitioner",
-    description:
-      "Validated foundational AWS cloud knowledge including compute, storage, networking, and security concepts.",
-    date: "2026",
-    image: "/achievements/aws-cert.jpg",
-    icon: Award,
-    link: "https://aws.amazon.com/certification/",
-  },
-  {
-    category: "Certification",
-    title: "Microsoft Power BI Data Analyst Associate",
-    description:
-      "Demonstrated skills in data preparation, modeling, visualization, and analytics using Power BI.",
-    date: "Planned",
-    image: "/achievements/powerbi-cert.jpg",
-    icon: Award,
-    link: "https://learn.microsoft.com/en-us/certifications/",
-  },
-  {
+    id: 2,
     category: "Career",
     title: "Joined TechCorp as Senior Engineer",
     description:
       "Started a new role leading the platform engineering team, focusing on scalability and developer experience.",
     date: "2025",
     image: "/achievements/convocation.jpg",
-    icon: Briefcase,
+    icon: "Briefcase",
     link: null,
+    isPinned: true,
+    order: 2
   },
   {
+    id: 2,
     category: "Project",
     title: "Open Source Project Hit 10k Stars",
     description:
       "DesignKit UI reached 10,000 GitHub stars, becoming one of the top React component libraries.",
     date: "2025",
     image: "/achievements/aws-cert.jpg",
-    icon: Rocket,
+    icon: "Rocket",
     link: "https://github.com",
+    isPinned: true,
+    order: 3
   },
   {
+    id: 2,
     category: "Education",
     title: "Bachelor of Science, Computer Science",
     description:
       "Graduated with honors from University of Toronto with a focus on distributed systems and algorithms.",
     date: "2022",
     image: "/achievements/convocation.jpg",
-    icon: GraduationCap,
+    icon: "GraduationCap",
     link: null,
+    isPinned: false,
+    order: null
   },
 ]
 
 // Get unique achievement categories
 export const achievementCategories: AchievementCategory[] = [
   "Education",
-  "Certification",
+  "Personal",
   "Project",
   "Career",
 ]
