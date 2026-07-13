@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import type { Achievement } from "@/lib/data"
 import { getLucideIcon } from "@/lib/utils"
+import { asset } from "@/lib/assets"
 
 interface AchievementsProps {
   data: Achievement[]
@@ -69,7 +70,7 @@ export function AchievementCard({ achievement }: AchievementCardProps) {
     <Card className="bg-card border-border hover:border-primary/50 transition-all duration-300 group overflow-hidden">
       <div className="relative h-48 overflow-hidden">
         <Image
-          src={achievement.image}
+          src={asset(achievement.image)}
           alt={achievement.title}
           fill
           className="object-cover transition-transform duration-300 group-hover:scale-105"
