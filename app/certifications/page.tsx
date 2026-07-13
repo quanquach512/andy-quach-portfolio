@@ -1,21 +1,40 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { CertificationCard } from "@/components/certifications"
-import { certificationsData, type CertificationStatus } from "@/lib/data"
+import { type CertificationStatus } from "@/lib/data"
+import { getCertifications } from "@/api/certifications"
 
 const statusOptions: (CertificationStatus | "All")[] = ["All", "Completed", "In Progress", "Planned"]
 
 export default function CertificationsPage() {
   const [activeStatus, setActiveStatus] = useState<CertificationStatus | "All">("All")
+  const [certs, setCerts] = useState<any[]>([])
+  const [loading, setLoading] = useState(true)
 
-  const filteredCertifications = activeStatus === "All" 
-    ? certificationsData 
-    : certificationsData.filter(cert => cert.status === activeStatus)
+  useEffect(() => {
+    async function loadCertifications() {
+      try {
+        setLoading(true)
+        const data = await getCertifications()
+        setCerts(data.certifications)
+      } catch (error) {
+        console.error("Failed to fetch certifications:", error)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    loadCertifications()
+  }, [])
+
+  const filteredCertifications = activeStatus === "All"
+    ? certs
+    : certs.filter(cert => cert.status === activeStatus)
 
   return (
     <main className="min-h-screen bg-background">
@@ -59,9 +78,15 @@ export default function CertificationsPage() {
 
         {/* Certifications Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredCertifications.map((cert, index) => (
-            <CertificationCard key={index} certification={cert} />
-          ))}
+          {loading ? (
+            <div className="col-span-full text-center text-muted-foreground">
+              Loading certifications...
+            </div>
+          ) : (
+            filteredCertifications.map((cert, index) => (
+              <CertificationCard key={index} certification={cert} />
+            ))
+          )}
         </div>
 
         {filteredCertifications.length === 0 && (

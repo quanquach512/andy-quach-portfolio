@@ -2,7 +2,7 @@
   "certifications": [
     {
       "id": 1,
-      "name": "AWS Certified Cloud Practitioner – CLF-C02",
+      "name": "AWS Certified Cloud Practitioner (CLF-C02)",
       "issuer": "Amazon Web Services",
       "date": "2026",
       "status": "Completed",
@@ -74,6 +74,17 @@
       "status": "In Progress",
       "credentialUrl": null,
       "badgeImage": "/certifications/dtb-associate.png",
+      "isPinned": false,
+      "order": 5
+    },
+    {
+      "id": 8,
+      "name": "Microsoft Certified: Power BI Data Analyst Associate (PL-300)",
+      "issuer": "Microsoft",
+      "date": "2026",
+      "status": "Planned",
+      "credentialUrl": null,
+      "badgeImage": "/certifications/pl-300.png",
       "isPinned": false,
       "order": 5
     }

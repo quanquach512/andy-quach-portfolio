@@ -18,9 +18,35 @@ export function Contact({ data }: ContactProps) {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000))
-    setIsSubmitting(false)
+    const form = e.currentTarget
+    const formData = new FormData(form)
+
+    const payload = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      subject: formData.get("subject"),
+      message: formData.get("message"),
+    }
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      })
+      
+      if (!res.ok) {
+        throw new Error("Failed to send message")
+      }
+      
+      form.reset()
+    } catch (error) {
+      console.error("Contact form error:", error)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -135,7 +161,7 @@ export function Contact({ data }: ContactProps) {
                   <Textarea 
                     id="message"
                     name="message"
-                    placeholder="Tell me about your project..."
+                    placeholder="Tell me about your enquiry..."
                     rows={5}
                     required
                     className="bg-input border-border resize-none"
