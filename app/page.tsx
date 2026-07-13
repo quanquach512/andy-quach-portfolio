@@ -23,18 +23,21 @@ import { HeroAPI  } from "@/api/hero"
 import { getProjects } from "@/api/projects"
 import { getExpertise  } from "@/api/expertise"
 import { getAchievements  } from "@/api/achievements"
+import { getCertifications } from "@/api/certifications"
 
 export default async function Home() {
   let hero = null
   let projects = []
   let techStack = null
   let achievements = null
+  let certificationData = null 
 
   try {
     hero = await HeroAPI.get()
     projects = await getProjects() 
     techStack = await getExpertise() as TechStackResponse
     achievements = await getAchievements() 
+    certificationData = await getCertifications()
   } catch (err) {
     console.error("SSR error:", err)
   }
@@ -54,7 +57,7 @@ export default async function Home() {
         showViewAll={false}
       />
       <Certifications 
-        data={certificationsData} 
+        data={certificationData.certifications} 
         limit={3}
         showViewAll={true}
       />

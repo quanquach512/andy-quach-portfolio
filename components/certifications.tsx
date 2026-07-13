@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import type { Certification } from "@/lib/data"
+import { asset } from "@/lib/assets"
 
 interface CertificationsProps {
   data: Certification[]
@@ -67,10 +68,10 @@ export function CertificationCard({ certification }: CertificationCardProps) {
       {certification.badgeImage && (
         <div className="relative h-32 overflow-hidden">
           <Image
-            src={certification.badgeImage}
+            src={asset(certification.badgeImage)}
             alt={certification.name}
             fill
-            className="object-cover transition-transform duration-300 group-hover:scale-105"
+            className="object-contain scale-100 transition-transform duration-300 group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />
         </div>
