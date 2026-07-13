@@ -410,7 +410,7 @@ export type TechStackResponse = {
 export type AchievementCategory = "Education" | "Personal" | "Project" | "Career"
 
 export interface Achievement {
-  id: Number
+  id: number
   category: AchievementCategory
   title: string
   description: string
@@ -418,8 +418,8 @@ export interface Achievement {
   image: string
   icon: string
   link: string | null
-  isPinned: Boolean
-  order: Number | null
+  isPinned: boolean
+  order: number | null
 }
 
 export const achievementsData: Achievement[] = [
