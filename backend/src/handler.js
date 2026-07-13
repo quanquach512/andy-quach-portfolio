@@ -2,6 +2,7 @@ const hero = require("./routes/hero");
 const download = require("./routes/download");
 const projects = require("./routes/projects");
 const expertise = require("./routes/expertise");
+const achievements = require("./routes/achievements")
 
 exports.handler = async (event) => {
   const path = (event.rawPath || "").replace(/^\/prod/, "");
@@ -28,7 +29,10 @@ exports.handler = async (event) => {
   if (path === "/expertise") {
     return expertise.handler(event);
   }
-  
+  //ACHIEVEMENT LIST
+  if (path === "/milestones") {
+    return achievements.handler(event);
+  }
   return {
     statusCode: 404,
     body: "Not found",

@@ -1,0 +1,26 @@
+{
+  "milestones": [
+    {
+    "id": 1,
+    "category": "Education",
+    "title": "Master of Engineering - University of Waterloo",
+    "description": "Completed MEng in Electrical & Computer Engineering (Software focus)",
+    "date": "2024",
+    "icon": "GraduationCap",
+    "image": "/achievements/convocation.jpg",
+    "isPinned": true,
+    "order": 1
+  },
+  {
+    "id": 2,
+    "category": "Personal",
+    "title": "Birth of Bull",
+    "description": "Welcomed my son Bull into the world ❤️",
+    "date": "2025",
+    "icon": "Heart",
+    "image": "/achievements/bull.jpg",
+    "isPinned": true,
+    "order": 2
+  }
+  ]
+}

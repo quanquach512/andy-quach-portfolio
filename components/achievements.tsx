@@ -1,10 +1,11 @@
 import Link from "next/link"
 import Image from "next/image"
-import { ExternalLink, Calendar, ArrowRight } from "lucide-react"
+import { ExternalLink, Calendar, ArrowRight, Icon } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import type { Achievement } from "@/lib/data"
+import { getLucideIcon } from "@/lib/utils"
 
 interface AchievementsProps {
   data: Achievement[]
@@ -62,7 +63,7 @@ interface AchievementCardProps {
 }
 
 export function AchievementCard({ achievement }: AchievementCardProps) {
-  const IconComponent = achievement.icon
+  const Icon =  getLucideIcon (achievement.icon)
   
   return (
     <Card className="bg-card border-border hover:border-primary/50 transition-all duration-300 group overflow-hidden">
@@ -78,7 +79,7 @@ export function AchievementCard({ achievement }: AchievementCardProps) {
           variant="secondary" 
           className="absolute top-4 left-4 bg-primary/90 text-primary-foreground border-0 flex items-center gap-1.5"
         >
-          <IconComponent className="h-3 w-3" />
+          <Icon className="h-3 w-3" />
           {achievement.category}
         </Badge>
       </div>
