@@ -87,6 +87,17 @@
       "badgeImage": "/certifications/pl-300.png",
       "isPinned": false,
       "order": 5
+    },
+    {
+      "id": 9,
+      "name": "Microsoft Certified: Fabric Data Engineer Associate (DP-700)",
+      "issuer": "Microsoft",
+      "date": "2026",
+      "status": "Planned",
+      "credentialUrl": null,
+      "badgeImage": "/certifications/dp-700.png",
+      "isPinned": false,
+      "order": 5
     }
   ]
 }
