@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/og.png',
+        url: "https://andyquach.dev/og.png",
         width: 1200,
         height: 630,
         alt: 'Andy Quach Portfolio',
