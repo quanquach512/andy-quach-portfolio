@@ -18,9 +18,41 @@ const firaCode = Fira_Code({
 });
 
 export const metadata: Metadata = {
-  title: 'Andy Quach | Software Engineer',
-  description: 'Full-stack software engineer specializing in building exceptional digital experiences',
-  generator: 'v0.app',
+  metadataBase: new URL('https://andyquach.dev'),
+
+  title: {
+    default: 'Andy Quach | Software Engineer',
+    template: '%s | Andy Quach',
+  },
+
+  description:
+    'Full-stack software engineer specializing in building modern web applications with Next.js and AWS.',
+
+  openGraph: {
+    title: 'Andy Quach | Software Engineer',
+    description:
+      'Full-stack software engineer specializing in building modern web applications with Next.js and AWS.',
+    url: 'https://andyquach.dev',
+    siteName: 'Andy Quach Portfolio',
+    type: 'website',
+    images: [
+      {
+        url: '/og.png',
+        width: 1200,
+        height: 630,
+        alt: 'Andy Quach Portfolio',
+      },
+    ],
+  },
+
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Andy Quach | Software Engineer',
+    description:
+      'Full-stack software engineer specializing in building modern web applications with Next.js and AWS.',
+    images: ['/og.png'],
+  },
+
   icons: {
     icon: [
       {
@@ -38,7 +70,7 @@ export const metadata: Metadata = {
     ],
     apple: '/apple-icon.png',
   },
-}
+};
 
 export default function RootLayout({
   children,
