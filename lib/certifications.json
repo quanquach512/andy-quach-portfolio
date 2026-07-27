@@ -9,7 +9,7 @@
       "credentialUrl": "https://www.credly.com/badges/6f8e648a-8bea-42fe-ad29-2abdc2e2535f",
       "badgeImage": "/certifications/aws-cert.jpg",
       "isPinned": true,
-      "order": 1
+      "order": 2
     },
     {
       "id": 2,
@@ -20,7 +20,7 @@
       "credentialUrl": "https://dth4j7f0euvv2.cloudfront.net/files/ECE-MENG-Software.pdf",
       "badgeImage": "/certifications/ece-meng-software.png",
       "isPinned": true,
-      "order": 2
+      "order": 3
     },
     {
       "id": 3,
@@ -30,7 +30,7 @@
       "status": "Completed",
       "credentialUrl": "https://coursera.org/verify/specialization/WUCNY4PQ1ERH",
       "badgeImage": "/certifications/ibm-de.png",
-      "isPinned": true,
+      "isPinned": false,
       "order": 3
     },
     {
@@ -71,11 +71,11 @@
       "name": "Databricks Certified Data Engineer Associate",
       "issuer": "Databricks",
       "date": "2026",
-      "status": "In Progress",
-      "credentialUrl": null,
+      "status": "Completed",
+      "credentialUrl": "https://credentials.databricks.com/14f57fb6-1959-46e8-9ed4-eb9abc0c4a8c#acc.LQVN4O9M",
       "badgeImage": "/certifications/dtb-associate.png",
-      "isPinned": false,
-      "order": 5
+      "isPinned": true,
+      "order": 1
     },
     {
       "id": 8,
